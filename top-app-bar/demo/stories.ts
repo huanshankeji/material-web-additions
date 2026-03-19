@@ -11,7 +11,7 @@ import '@maicol07/material-web-additions/top-app-bar/medium-top-app-bar.js';
 import '@maicol07/material-web-additions/top-app-bar/large-top-app-bar.js';
 
 import {MaterialStoryInit} from '~catalog/stories/material-collection.js';
-import {html} from 'lit';
+import {css, html} from 'lit';
 
 /** Knob types for button stories. */
 export interface StoryKnobs {
@@ -87,5 +87,37 @@ const largeTopAppBar: MaterialStoryInit<StoryKnobs> = {
   }
 };
 
+/**
+ * Reproduces the overflow bug: without `box-sizing: border-box`, the top app
+ * bar's total width would be `100% + 32px` (16px padding each side), causing
+ * a horizontal scrollbar in the container below. With the fix applied this
+ * bar fits exactly within the container.
+ */
+const inContainerOverflowFix: MaterialStoryInit<StoryKnobs> = {
+  name: 'In Container (overflow fix)',
+  styles: css`
+    .container {
+      width: 360px;
+      overflow: auto;
+      border: 2px dashed var(--md-sys-color-outline, #79747e);
+    }
+  `,
+  render({sticky}) {
+    return html`
+      <div class="container">
+        <md-small-top-app-bar sticky="${sticky}">
+          <span slot="start">
+            <md-icon>menu</md-icon>
+          </span>
+          <span>Title</span>
+          <span slot="end">
+            <md-icon>search</md-icon>
+          </span>
+        </md-small-top-app-bar>
+      </div>
+    `;
+  }
+};
+
 /** Button stories. */
-export const stories = [centerAlignedTopAppBar, smallTopAppBar, mediumTopAppBar, largeTopAppBar];
+export const stories = [centerAlignedTopAppBar, smallTopAppBar, mediumTopAppBar, largeTopAppBar, inContainerOverflowFix];

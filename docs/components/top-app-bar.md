@@ -55,6 +55,45 @@ src="https://lh3.googleusercontent.com/gET6z1juQKqCuAykihEyJGjGMAQa6rHiwaRHjcIUY
 
 <!-- catalog-only-end -->
 
+## Overflow fix
+
+<!-- catalog-only-start -->
+
+<!--
+
+<div class="figure-wrapper">
+  <figure
+      style="justify-content:center;flex-direction:column;gap:8px;"
+      title="Top app bar in a constrained container — box-sizing: border-box fix."
+      aria-label="Top app bar displayed within a 300px container, fitting exactly with no horizontal scrollbar, demonstrating the box-sizing: border-box fix.">
+    <style>
+      .overflow-demo-container {
+        width: 300px;
+        overflow: auto;
+        border: 2px dashed var(--md-sys-color-outline, #79747e);
+        border-radius: 4px;
+      }
+      .overflow-demo-caption {
+        font-size: 12px;
+        margin: 4px 0 0;
+        color: var(--md-sys-color-on-surface-variant, #49454f);
+      }
+    </style>
+    <div class="overflow-demo-container">
+      <md-small-top-app-bar>
+        <md-icon-button slot="start"><md-icon>menu</md-icon></md-icon-button>
+        <div>Title</div>
+        <md-icon-button slot="end"><md-icon>search</md-icon></md-icon-button>
+      </md-small-top-app-bar>
+    </div>
+    <p class="overflow-demo-caption">The bar fits exactly within the 300px dashed container — <code>box-sizing: border-box</code> ensures <code>padding-inline</code> is included in the 100% width rather than added on top of it.</p>
+  </figure>
+</div>
+
+-->
+
+<!-- catalog-only-end -->
+
 ## Types
 
 <!-- no-catalog-start -->
